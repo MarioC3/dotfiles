@@ -1,0 +1,14 @@
+[user]
+	email = me@beto.codes
+	name = Beto Carlos
+[init]
+	defaultBranch = main
+[alias]
+	cleanstale = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+[core]
+	editor = code --wait
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
